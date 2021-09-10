@@ -1,6 +1,6 @@
 export ZSH="/home/glotchimo/.oh-my-zsh"
 
-ZSH_THEME="jonathan"
+ZSH_THEME="duellj"
 
 plugins=(git golang vscode)
 
