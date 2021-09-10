@@ -39,7 +39,8 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = IBM Plex Mono
-font-1 = FontAwesome5FreeSolid:pixelsize=12;1
+font-1 = IBM Plex Sans
+font-2 = FontAwesome5FreeSolid:pixelsize=12;1
 
 modules-left = i3
 modules-center = title
@@ -55,25 +56,38 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+
+ws-icon-0 = 1;Δ
+ws-icon-1 = 2;Θ
+ws-icon-2 = 3;Ξ
+ws-icon-3 = 4;Σ
+ws-icon-4 = 5;Φ
+ws-icon-5 = 6;Ψ
+ws-icon-6 = 7;Ω
+ws-icon-7 = 8;δ
+ws-icon-8 = 9;λ
+
 label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.background}
-label-focused = %index%
+
+label-focused = %icon%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline= ${colors.nord9}
 label-focused-padding = 1
-label-unfocused = %index%
+
+label-unfocused = %icon%
 label-unfocused-padding = 1
-label-visible = %index%
+
+label-visible = %icon%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 1
-label-urgent = %index%
+
+label-urgent = %icon%
 label-urgent-background = ${colors.warning}
 label-urgent-padding = 2
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/title]
 type = internal/xwindow
