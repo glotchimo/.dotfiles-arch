@@ -1,0 +1,104 @@
+/*******************************************************************************
+ * ROFI VERTICAL THEME USING THE NORD COLOR PALETTE
+ * User                 : LR-Tech, modified by glotchimo
+ * Theme Repo           : https://github.com/lr-tech/rofi-themes-collection
+ * Nord Project Repo    : https://github.com/arcticicestudio/nord
+ *******************************************************************************/
+
+configuration {
+    font            : "IBM Plex Mono 12";
+    // display-ssh     : "";
+    display-run     : "";
+    // display-drun    : "";
+    // display-window  : "";
+    // display-combi   : "";
+
+}
+* {
+    nord0   : #2e3440;
+    nord1   : #3b4252;
+    nord2   : #434c5e;
+    nord3   : #4c566a;
+
+    nord4   : #d8dee9;
+    nord5   : #e5e9f0;
+    nord6   : #eceff4;
+
+    nord7   : #8fbcbb;
+    nord9   : #88c0d0;
+    nord9   : #81a1c1;
+    nord10  : #5e81ac;
+    nord11  : #bf616a;
+
+    nord12  : #d08770;
+    nord13  : #ebcb8b;
+    nord14  : #a3be8c;
+    nord15  : #b48ead;
+
+    background-color    : @nord1;
+    text-color          : @nord4;
+
+    margin              : 0;
+}
+#window {
+    location            : center;
+    y-offset            : -200;
+    width               : 1000;
+    background-color    : @nord0;
+    border              : 5;
+    border-color        : @nord9;
+}
+#mainbox {
+    spacing             : 0;
+}
+#inputbar {
+    background-color    : @nord0;
+    spacing             : 0;
+}
+#prompt {
+    padding             : 12 12 0;
+    background-color    : @nord0;
+    vertical-align      : 0;
+}
+#entry {
+    padding             : 8 0;
+    background-color    : @nord0;
+}
+#case-indicator {
+    padding             : 8;
+    background-color    : @nord0;
+}
+#message {
+    padding             : 0;
+}
+#textbox {
+    padding             : 1;
+    background-color    : @nord9;
+    text-color          : @nord0;
+}
+#listview {
+    lines               : 8;
+    columns             : 1;
+    fixed-height        : false;
+    spacing             : 0;
+}
+#element {
+    padding             : 8;
+    spacing             : 8;
+}
+#element normal {
+    text-color          : @nord4;
+}
+#element selected {
+    background-color    : @nord3;
+    text-color          : @nord3;
+}
+#element-text selected {
+    background-color    : @nord3;
+}
+#element-icon {
+    size                : 0.8em;
+}
+#mode-switcher {
+    padding             : 0;
+}

@@ -1,0 +1,144 @@
+[colors]
+background = #2E3440
+buffer = #4c566a
+foreground = #D8DEE9
+nord6 = #ECEFF4
+nord7 = #8FBCBB
+nord8 = #88C0D0
+nord9 = #81A1C1
+nord10 = #5E81AC
+urgent = #BF616A
+warning = #D08770
+notify = #EBCB8B
+success = #A3BE8C
+function = #B48EAD
+
+[bar/example]
+monitor = ${env:MONITOR:DP-2}
+dpi = 120
+
+width = 100%
+height = 3%
+offset-x = 0
+offset-y = 0
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 4
+line-color = #f00
+
+border-size = 26
+border-bottom-size = 0
+border-color = #00000000
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = IBM Plex Mono
+font-1 = FontAwesome5FreeSolid:pixelsize=12;1
+
+modules-left = i3
+modules-center = title
+modules-right = memory cpu temperature pulseaudio wlan date
+
+tray-position = none
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.background}
+label-focused = %index%
+label-focused-background = ${colors.background}
+label-focused-foreground = ${colors.foreground}
+label-focused-underline= ${colors.nord9}
+label-focused-padding = 1
+label-unfocused = %index%
+label-unfocused-padding = 1
+label-visible = %index%
+label-visible-background = ${colors.background}
+label-visible-foreground = ${colors.foreground}
+label-visible-padding = 1
+label-urgent = %index%
+label-urgent-background = ${colors.warning}
+label-urgent-padding = 2
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+[module/title]
+type = internal/xwindow
+format-foreground = ${colors.foreground}
+format-underline = ${colors.nord9}
+format-padding = 0
+label-maxlen = 50
+label-empty = Desktop
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-underline = ${colors.function}
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-underline = ${colors.nord10}
+label =  %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp5s0
+interval = 3.0
+format-connected = <label-connected>
+format-connected-underline = ${colors.success}
+label-connected =  %essid%
+format-disconnected = <label-disconnected>
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground}
+
+[module/date]
+type = internal/date
+interval = 5
+date = "%Y-%m-%d"
+time = %H:%M
+format-underline = ${colors.nord7}
+label = %time% %date%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+format-volume = <label-volume>
+label-volume =  %percentage%%
+label-volume-foreground = ${root.foreground}
+label-volume-underline = ${colors.nord6}
+label-muted = 
+label-muted-foreground = ${colors.buffer}
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+format = <label>
+format-underline = ${colors.warning}
+label =  %temperature-c%
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+pseudo-transparency = true
+
+[global/wm]
+margin-top = 10
+margin-bottom = 10
