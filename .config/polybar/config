@@ -22,7 +22,7 @@ height = 3%
 offset-x = 0
 offset-y = 0
 
-background = ${colors.background}
+background = #00000000
 foreground = ${colors.foreground}
 
 line-size = 4
@@ -32,11 +32,11 @@ border-size = 26
 border-bottom-size = 0
 border-color = #00000000
 
-padding-left = 1
-padding-right = 1
+padding-left = 0
+padding-right = 0
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = IBM Plex Mono
 font-1 = IBM Plex Sans
@@ -57,43 +57,46 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-ws-icon-0 = 1;Δ
-ws-icon-1 = 2;Θ
-ws-icon-2 = 3;Ξ
-ws-icon-3 = 4;Σ
-ws-icon-4 = 5;Φ
-ws-icon-5 = 6;Ψ
-ws-icon-6 = 7;Ω
-ws-icon-7 = 8;δ
-ws-icon-8 = 9;λ
+;ws-icon-0 = 1;Δ
+;ws-icon-1 = 2;Θ
+;ws-icon-2 = 3;Ξ
+;ws-icon-3 = 4;Σ
+;ws-icon-4 = 5;Φ
+;ws-icon-5 = 6;Ψ
+;ws-icon-6 = 7;Ω
+;ws-icon-7 = 8;δ
+;ws-icon-8 = 9;λ
 
 label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.background}
 
-label-focused = %icon%
+label-focused = %index%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
 label-focused-underline= ${colors.nord9}
 label-focused-padding = 1
 
-label-unfocused = %icon%
+label-unfocused = %index%
+label-unfocused-background = ${colors.background}
+label-unfocused-foreground = ${colors.foreground}
 label-unfocused-padding = 1
 
-label-visible = %icon%
+label-visible = %index%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.foreground}
 label-visible-padding = 1
 
-label-urgent = %icon%
+label-urgent = %index%
 label-urgent-background = ${colors.warning}
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 [module/title]
 type = internal/xwindow
 format-foreground = ${colors.foreground}
 format-underline = ${colors.nord9}
-format-padding = 0
+format-padding = 1
+format-background = ${colors.background}
 label-maxlen = 50
 label-empty = Desktop
 
@@ -101,21 +104,29 @@ label-empty = Desktop
 type = internal/cpu
 interval = 2
 format-underline = ${colors.function}
-label = %percentage:2%%
+format-padding = 1
+format-background = ${colors.background}
+label =  %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-underline = ${colors.nord10}
+format-padding = 1
+format-background = ${colors.background}
 label =  %percentage_used%%
 
 [module/wlan]
 type = internal/network
 interface = wlp5s0
 interval = 3.0
+format-connected-padding = 1
+format-connected-background = ${colors.background}
 format-connected = <label-connected>
 format-connected-underline = ${colors.success}
 label-connected =  %essid%
+format-disconnected-padding = 1
+format-disconnected-background = ${colors.warning}
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
@@ -127,14 +138,18 @@ interval = 5
 date = "%Y-%m-%d"
 time = %H:%M
 format-underline = ${colors.nord7}
+format-padding = 1
+format-background = ${colors.background}
 label = %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 format-volume = <label-volume>
+format-volume-padding = 1
+format-volume-background = ${colors.background}
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-label-volume-underline = ${colors.nord6}
+format-volume-underline = ${colors.nord6}
 label-muted = 
 label-muted-foreground = ${colors.buffer}
 
@@ -143,6 +158,8 @@ type = internal/temperature
 thermal-zone = 0
 format = <label>
 format-underline = ${colors.warning}
+format-padding = 1
+format-background = ${colors.background}
 label =  %temperature-c%
 
 [settings]
