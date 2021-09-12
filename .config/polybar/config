@@ -80,11 +80,13 @@ label-focused-padding = 1
 label-unfocused = %index%
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
+label-unfocused-underline = ${colors.buffer}
 label-unfocused-padding = 1
 
 label-visible = %index%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.foreground}
+label-visible-underline = ${colors.buffer}
 label-visible-padding = 1
 
 label-urgent = %index%
@@ -106,7 +108,7 @@ interval = 2
 format-underline = ${colors.function}
 format-padding = 1
 format-background = ${colors.background}
-label =  %percentage:2%%
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
@@ -137,7 +139,7 @@ type = internal/date
 interval = 5
 date = "%Y-%m-%d"
 time = %H:%M
-format-underline = ${colors.nord7}
+format-underline = ${colors.nord6}
 format-padding = 1
 format-background = ${colors.background}
 label = %time% %date%
@@ -149,7 +151,7 @@ format-volume-padding = 1
 format-volume-background = ${colors.background}
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-format-volume-underline = ${colors.nord6}
+format-volume-underline = ${colors.nord7}
 label-muted = 
 label-muted-foreground = ${colors.buffer}
 
