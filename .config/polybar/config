@@ -42,9 +42,8 @@ font-0 = IBM Plex Mono
 font-1 = IBM Plex Sans
 font-2 = FontAwesome5FreeSolid:pixelsize=12;1
 
-modules-left = i3
-modules-center = title
-modules-right = memory cpu temperature pulseaudio wlan date
+modules-left = i3 title
+modules-right = memory cpu temperature pulseaudio wlan polypomo date
 
 tray-position = none
 
@@ -93,13 +92,30 @@ label-urgent = %index%
 label-urgent-background = ${colors.warning}
 label-urgent-padding = 1
 
+[module/polypomo]
+type = custom/script
+
+exec = ~/.config/polybar/polypomo.py --worktime 1500 --breaktime 300
+tail = true
+
+label = %output%
+label-underline = ${colors.urgent}
+label-background = ${colors.background}
+label-padding = 1
+click-left = ~/.config/polybar/polypomo.py toggle
+click-right = ~/.config/polybar/polypomo.py end
+click-middle = ~/.config/polybar/polypomo.py lock
+scroll-up = ~/.config/polybar/polypomo.py time +60
+scroll-down = ~/.config/polybar/polypomo.py time -60
+
+
 [module/title]
 type = internal/xwindow
 format-foreground = ${colors.foreground}
 format-underline = ${colors.nord9}
 format-padding = 1
 format-background = ${colors.background}
-label-maxlen = 50
+label-maxlen = 100
 label-empty = Desktop
 
 [module/cpu]
@@ -108,12 +124,12 @@ interval = 2
 format-underline = ${colors.function}
 format-padding = 1
 format-background = ${colors.background}
-label = %percentage:2%%
+label =  %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-underline = ${colors.nord10}
+format-underline = ${colors.notify}
 format-padding = 1
 format-background = ${colors.background}
 label =  %percentage_used%%
@@ -139,7 +155,7 @@ type = internal/date
 interval = 5
 date = "%Y-%m-%d"
 time = %H:%M
-format-underline = ${colors.nord6}
+format-underline = ${colors.nord7}
 format-padding = 1
 format-background = ${colors.background}
 label = %time% %date%
@@ -151,7 +167,7 @@ format-volume-padding = 1
 format-volume-background = ${colors.background}
 label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
-format-volume-underline = ${colors.nord7}
+format-volume-underline = ${colors.nord10}
 label-muted = 
 label-muted-foreground = ${colors.buffer}
 
