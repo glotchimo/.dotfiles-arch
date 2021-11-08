@@ -43,7 +43,7 @@ font-1 = IBM Plex Sans
 font-2 = FontAwesome5FreeSolid:pixelsize=12;1
 
 modules-left = i3 title
-modules-right = memory cpu temperature pulseaudio wlan polypomo date
+modules-right = memory cpu temperature pulseaudio wlan date
 
 tray-position = none
 
@@ -89,7 +89,8 @@ label-visible-underline = ${colors.buffer}
 label-visible-padding = 1
 
 label-urgent = %index%
-label-urgent-background = ${colors.warning}
+label-urgent-background = ${colors.background}
+label-urgent-underline = ${colors.warning}
 label-urgent-padding = 1
 
 [module/polypomo]
@@ -115,13 +116,13 @@ format-foreground = ${colors.foreground}
 format-underline = ${colors.nord9}
 format-padding = 1
 format-background = ${colors.background}
-label-maxlen = 100
+label-maxlen = 50
 label-empty = Desktop
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-underline = ${colors.function}
+format-underline = ${colors.warning}
 format-padding = 1
 format-background = ${colors.background}
 label =  %percentage:2%%
@@ -144,7 +145,7 @@ format-connected = <label-connected>
 format-connected-underline = ${colors.success}
 label-connected =  %essid%
 format-disconnected-padding = 1
-format-disconnected-background = ${colors.warning}
+format-disconnected-background = ${colors.background}
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
@@ -153,8 +154,8 @@ label-disconnected-foreground = ${colors.foreground}
 [module/date]
 type = internal/date
 interval = 5
-date = "%Y-%m-%d"
-time = %H:%M
+date = %D
+time = %I:%M %p
 format-underline = ${colors.nord7}
 format-padding = 1
 format-background = ${colors.background}
@@ -162,23 +163,41 @@ label = %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume = <label-volume>
+format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
 format-volume-background = ${colors.background}
-label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
 format-volume-underline = ${colors.nord10}
+
+ramp-volume-0 =  
+ramp-volume-1 =  
+ramp-volume-2 =  
+
 label-muted = 
 label-muted-foreground = ${colors.buffer}
 
 [module/temperature]
 type = internal/temperature
-thermal-zone = 0
-format = <label>
-format-underline = ${colors.warning}
+hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
+warn-temperature = 80
+
+format = <ramp> <label>
+format-underline = ${colors.function}
 format-padding = 1
 format-background = ${colors.background}
-label =  %temperature-c%
+
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${colors.urgent}
+format-warn-padding = 1
+format-warn-background = ${colors.background}
+
+label = %temperature-f%
+label-warn = %temperature-f%
+
+ramp-0 =  
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
 
 [settings]
 screenchange-reload = true

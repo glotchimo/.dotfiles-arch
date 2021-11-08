@@ -1,5 +1,5 @@
 export ZSH="/home/glotchimo/.oh-my-zsh"
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin
 
 ZSH_THEME="duellj"
 
@@ -18,3 +18,5 @@ alias hk="heroku"
 alias pm="python manage.py"
 
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+source "$HOME/.config/todoist/todoist_functions.sh"
