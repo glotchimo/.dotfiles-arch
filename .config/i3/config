@@ -10,10 +10,14 @@ font pango:DejaVu Sans Mono 10
 font pango:IBM Plex Sans Mono 10
 
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 floating_modifier $mod
 
@@ -22,7 +26,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec alacritty
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec alacritty -e ranger
-bindsym $mod+d exec rofi -theme nord -show run
+bindsym $mod+d exec rofi -show run
 bindsym Print exec flameshot gui
 
 bindsym $mod+j focus left
@@ -124,7 +128,7 @@ mode "power" {
 
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper
+exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper-gruvbox
 
 # gaps
 
@@ -134,9 +138,9 @@ smart_gaps inverse_outer
 
 # window theming
 
-client.focused          #81a1c1 #81a1c1 #ffffff #81a1c1
-client.unfocused        #4c566a #2e3440 #888888 #2e3440
-client.focused_inactive #4c566a #2e3440 #888888 #2e3440
-client.placeholder      #2e3440 #2e3440 #888888 #2e3440
-client.urgent           #900000 #900000 #ffffff #900000
-client.background       #242424
+client.focused          #928374 #928374 #ebdbb2 #32302f
+client.unfocused        #32302f #32302f #ebdbb2 #32302f
+client.focused_inactive #32302f #32302f #ebdbb2 #32302f
+client.placeholder      #32302f #32302f #ebdbb2 #32302f
+client.urgent           #d65d0e #d65d0e #ebdbb2 #d65d0e
+client.background       #32302f

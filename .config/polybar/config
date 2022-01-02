@@ -1,17 +1,15 @@
 [colors]
-background = #2E3440
-buffer = #4c566a
-foreground = #D8DEE9
-nord6 = #ECEFF4
-nord7 = #8FBCBB
-nord8 = #88C0D0
-nord9 = #81A1C1
-nord10 = #5E81AC
-urgent = #BF616A
-warning = #D08770
-notify = #EBCB8B
-success = #A3BE8C
-function = #B48EAD
+background = #32302f
+lowlight = #665c54
+highlight = #928374
+foreground = #ebdbb2
+red = #fb4934
+green = #b8bb26
+yellow = #fabd2f
+blue = #83a598
+purple = #d3869b
+aqua = #8ec07c
+orange = #fe8019
 
 [bar/example]
 monitor = ${env:MONITOR:DP-2}
@@ -73,24 +71,24 @@ label-mode-background = ${colors.background}
 label-focused = %index%
 label-focused-background = ${colors.background}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline= ${colors.nord9}
+label-focused-underline= ${colors.highlight}
 label-focused-padding = 1
 
 label-unfocused = %index%
 label-unfocused-background = ${colors.background}
 label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline = ${colors.buffer}
+label-unfocused-underline = ${colors.lowlight}
 label-unfocused-padding = 1
 
 label-visible = %index%
 label-visible-background = ${colors.background}
 label-visible-foreground = ${colors.foreground}
-label-visible-underline = ${colors.buffer}
+label-visible-underline = ${colors.lowlight}
 label-visible-padding = 1
 
 label-urgent = %index%
 label-urgent-background = ${colors.background}
-label-urgent-underline = ${colors.warning}
+label-urgent-underline = ${colors.red}
 label-urgent-padding = 1
 
 [module/polypomo]
@@ -100,7 +98,7 @@ exec = ~/.config/polybar/polypomo.py --worktime 1500 --breaktime 300
 tail = true
 
 label = %output%
-label-underline = ${colors.urgent}
+label-underline = ${colors.red}
 label-background = ${colors.background}
 label-padding = 1
 click-left = ~/.config/polybar/polypomo.py toggle
@@ -113,7 +111,7 @@ scroll-down = ~/.config/polybar/polypomo.py time -60
 [module/title]
 type = internal/xwindow
 format-foreground = ${colors.foreground}
-format-underline = ${colors.nord9}
+format-underline = ${colors.blue}
 format-padding = 1
 format-background = ${colors.background}
 label-maxlen = 50
@@ -122,7 +120,7 @@ label-empty = Desktop
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-underline = ${colors.warning}
+format-underline = ${colors.orange}
 format-padding = 1
 format-background = ${colors.background}
 label =  %percentage:2%%
@@ -130,7 +128,7 @@ label =  %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-underline = ${colors.notify}
+format-underline = ${colors.yellow}
 format-padding = 1
 format-background = ${colors.background}
 label =  %percentage_used%%
@@ -142,21 +140,21 @@ interval = 3.0
 format-connected-padding = 1
 format-connected-background = ${colors.background}
 format-connected = <label-connected>
-format-connected-underline = ${colors.success}
+format-connected-underline = ${colors.green}
 label-connected =  %essid%
 format-disconnected-padding = 1
 format-disconnected-background = ${colors.background}
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.foreground}
+label-disconnected-foreground = ${colors.notify}
 
 [module/date]
 type = internal/date
 interval = 5
 date = %D
 time = %I:%M %p
-format-underline = ${colors.nord7}
+format-underline = ${colors.aqua}
 format-padding = 1
 format-background = ${colors.background}
 label = %time% %date%
@@ -166,14 +164,14 @@ type = internal/pulseaudio
 format-volume = <ramp-volume> <label-volume>
 format-volume-padding = 1
 format-volume-background = ${colors.background}
-format-volume-underline = ${colors.nord10}
+format-volume-underline = ${colors.purple}
 
 ramp-volume-0 =  
 ramp-volume-1 =  
 ramp-volume-2 =  
 
 label-muted = 
-label-muted-foreground = ${colors.buffer}
+label-muted-foreground = ${colors.lowlight}
 
 [module/temperature]
 type = internal/temperature
@@ -181,17 +179,17 @@ hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
 warn-temperature = 80
 
 format = <ramp> <label>
-format-underline = ${colors.function}
+format-underline = ${colors.red}
 format-padding = 1
 format-background = ${colors.background}
 
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.urgent}
+format-warn-underline = ${colors.red}
 format-warn-padding = 1
 format-warn-background = ${colors.background}
 
-label = %temperature-f%
-label-warn = %temperature-f%
+label = %temperature-c%
+label-warn = %temperature-c%
 
 ramp-0 =  
 ramp-1 = 
