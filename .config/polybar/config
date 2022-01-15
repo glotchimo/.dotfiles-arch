@@ -1,6 +1,6 @@
 [colors]
 background = #32302f
-lowlight = #665c54
+lowlight = #504945
 highlight = #928374
 foreground = #ebdbb2
 red = #fb4934
@@ -114,7 +114,7 @@ format-foreground = ${colors.foreground}
 format-underline = ${colors.blue}
 format-padding = 1
 format-background = ${colors.background}
-label-maxlen = 50
+label-maxlen = 80
 label-empty = Desktop
 
 [module/cpu]

@@ -2,8 +2,8 @@
 
 set $mod Mod4
 
-default_border pixel 3
-default_floating_border pixel 3
+default_border none
+default_floating_border none 
 hide_edge_borders true
 
 font pango:DejaVu Sans Mono 10
@@ -29,28 +29,25 @@ bindsym $mod+F3 exec alacritty -e ranger
 bindsym $mod+d exec rofi -show run
 bindsym Print exec flameshot gui
 
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
-bindsym $mod+h split h
-bindsym $mod+v split v
 
 bindsym $mod+f fullscreen toggle
 
@@ -124,11 +121,13 @@ mode "power" {
         bindsym Escape mode "default"
 }
 
+focus_follows_mouse yes
+
 # autostarts
 
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper-gruvbox
+exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper-dark
 
 # gaps
 
