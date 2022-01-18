@@ -127,7 +127,7 @@ focus_follows_mouse yes
 
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper-dark
+exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper
 
 # gaps
 
