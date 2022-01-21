@@ -1,0 +1,73 @@
+* {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-family: "IBM Plex Mono";
+}
+
+:root {
+  --tab-toolbar-navbar-overlap: 0px !important;
+  --tab-min-height: 25px !important;
+}
+:root #tabbrowser-tabs {
+  --tab-min-height: 25px !important;
+}
+
+#TabsToolbar {
+  margin-top: -4px !important;
+  margin-bottom: -4px !important;
+  max-height: var(--tab-min-height) !important;
+}
+.tabbrowser-tab {padding: 0 !important;}
+.tab-icon-image {display: none !important;}
+#tabs-newtab-button {display: none !important;}
+#titlebar {height: 21px !important;}
+.tab-close-button {display: none !important;}
+.tab-content {
+  height: 30px !important;
+}
+.tab-background {
+  margin: 0 !important;
+  border: none !important;
+}
+
+#back-button {display: none !important;}
+#forward-button {display: none !important;}
+#nav-bar {
+  background-color: #a89984 !important;
+  max-height: 20px !important;
+}
+
+#urlbar {padding: 0 8px !important;}
+#urlbar.focused {padding: 0 8px !important;}
+#urlbar-container {
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#urlbar-background {
+  background-color: #a89984 !important;
+  border: none !important;
+}
+#urlbar-input-container {
+  color: #32302f !important;
+  padding: 0 !important;
+  border: none !important;
+}
+.urlbarView {
+  color: #32302f !important;
+}
+
+#tracking-protection-icon-container {display: none !important;}
+#identity-box {display: none !important;}
+#page-action-buttons {display: none !important;}
+
+#nav-bar-overflow-button > image:nth-child(1) {
+  margin-top: -12px !important;
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
+#PanelUI-button {
+  margin-top: -12px !important;
+  -webkit-filter: grayscale(1) invert(1);
+  filter: grayscale(1) invert(1);
+}
