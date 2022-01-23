@@ -125,13 +125,14 @@ focus_follows_mouse yes
 
 # autostarts
 
+exec_always --no-startup-id exec xrdb -merge ~/.Xresources
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper
 
 # gaps
 
-gaps inner 20
+gaps inner 20 
 gaps outer -2
 smart_gaps inverse_outer
 

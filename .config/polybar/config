@@ -1,8 +1,8 @@
 [colors]
 background = #32302f
-lowlight = #504945
-highlight = #928374
-foreground = #ebdbb2
+lowlight = #928374
+highlight = #a89984
+foreground = #32302f
 red = #fb4934
 green = #b8bb26
 yellow = #fabd2f
@@ -16,28 +16,16 @@ monitor = ${env:MONITOR:DP-2}
 dpi = 120
 
 width = 100%
-height = 3%
-offset-x = 0
-offset-y = 0
+height = 1.75%
 
-background = #00000000
+background = #3c3836
 foreground = ${colors.foreground}
-
-line-size = 4
-line-color = #f00
 
 border-size = 26
 border-bottom-size = 0
-border-color = #00000000
 
-padding-left = 0
-padding-right = 0
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = IBM Plex Mono
-font-1 = IBM Plex Sans
+font-0 = IBM Plex Mono;3
+font-1 = IBM Plex Sans;3
 font-2 = FontAwesome5FreeSolid:pixelsize=12;1
 
 modules-left = i3 title
@@ -54,121 +42,80 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 
-;ws-icon-0 = 1;Δ
-;ws-icon-1 = 2;Θ
-;ws-icon-2 = 3;Ξ
-;ws-icon-3 = 4;Σ
-;ws-icon-4 = 5;Φ
-;ws-icon-5 = 6;Ψ
-;ws-icon-6 = 7;Ω
-;ws-icon-7 = 8;δ
-;ws-icon-8 = 9;λ
-
 label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.background}
 
 label-focused = %index%
-label-focused-background = ${colors.background}
+label-focused-background = ${colors.highlight}
 label-focused-foreground = ${colors.foreground}
-label-focused-underline= ${colors.highlight}
 label-focused-padding = 1
 
 label-unfocused = %index%
-label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.foreground}
-label-unfocused-underline = ${colors.lowlight}
+label-unfocused-foreground = #ebdbb2
+label-unfocused-background = #504945
 label-unfocused-padding = 1
 
 label-visible = %index%
-label-visible-background = ${colors.background}
-label-visible-foreground = ${colors.foreground}
-label-visible-underline = ${colors.lowlight}
+label-visible-foreground = #ebdbb2
+label-visible-background = #504945
 label-visible-padding = 1
 
 label-urgent = %index%
-label-urgent-background = ${colors.background}
-label-urgent-underline = ${colors.red}
+label-urgent-foreground = ${colors.background}
+label-urgent-background = ${colors.foreground}
 label-urgent-padding = 1
-
-[module/polypomo]
-type = custom/script
-
-exec = ~/.config/polybar/polypomo.py --worktime 1500 --breaktime 300
-tail = true
-
-label = %output%
-label-underline = ${colors.red}
-label-background = ${colors.background}
-label-padding = 1
-click-left = ~/.config/polybar/polypomo.py toggle
-click-right = ~/.config/polybar/polypomo.py end
-click-middle = ~/.config/polybar/polypomo.py lock
-scroll-up = ~/.config/polybar/polypomo.py time +60
-scroll-down = ~/.config/polybar/polypomo.py time -60
-
 
 [module/title]
 type = internal/xwindow
 format-foreground = ${colors.foreground}
-format-underline = ${colors.blue}
+format-background = ${colors.blue}
 format-padding = 1
-format-background = ${colors.background}
-label-maxlen = 80
+label-maxlen = 64
 label-empty = Desktop
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-underline = ${colors.orange}
 format-padding = 1
-format-background = ${colors.background}
-label =  %percentage:2%%
+format-background = ${colors.orange}
+label = %percentage%% cpu
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-underline = ${colors.yellow}
 format-padding = 1
-format-background = ${colors.background}
-label =  %percentage_used%%
+format-background = ${colors.yellow}
+label = %percentage_used%% mem
 
 [module/wlan]
 type = internal/network
 interface = wlp5s0
 interval = 3.0
 format-connected-padding = 1
-format-connected-background = ${colors.background}
+format-connected-background = ${colors.green}
 format-connected = <label-connected>
-format-connected-underline = ${colors.green}
-label-connected =  %essid%
+label-connected = %essid%
 format-disconnected-padding = 1
-format-disconnected-background = ${colors.background}
+format-disconnected-background = ${colors.notify}
 format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
-label-disconnected-foreground = ${colors.notify}
+label-disconnected-foreground = ${colors.foreground}
 
 [module/date]
 type = internal/date
 interval = 5
 date = %D
 time = %I:%M %p
-format-underline = ${colors.aqua}
 format-padding = 1
-format-background = ${colors.background}
+format-background = ${colors.aqua}
 label = %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume = <ramp-volume> <label-volume>
+format-volume = <label-volume>
 format-volume-padding = 1
-format-volume-background = ${colors.background}
-format-volume-underline = ${colors.purple}
-
-ramp-volume-0 =  
-ramp-volume-1 =  
-ramp-volume-2 =  
+format-volume-background = ${colors.purple}
 
 label-muted = 
 label-muted-foreground = ${colors.lowlight}
@@ -178,33 +125,21 @@ type = internal/temperature
 hwmon-path = /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input
 warn-temperature = 80
 
-format = <ramp> <label>
-format-underline = ${colors.red}
+format = <label>
 format-padding = 1
-format-background = ${colors.background}
+format-background = ${colors.red}
 
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.red}
+format-warn = <label-warn>
 format-warn-padding = 1
-format-warn-background = ${colors.background}
+format-warn-background = ${colors.red}
 
 label = %temperature-c%
 label-warn = %temperature-c%
 
-ramp-0 =  
-ramp-1 = 
-ramp-2 = 
-ramp-3 = 
-ramp-4 = 
-
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 pseudo-transparency = true
 
 [global/wm]
-margin-top = 10
-margin-bottom = 10
+margin-top = 0
+margin-bottom = 0
