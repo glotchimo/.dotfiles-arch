@@ -7,9 +7,9 @@ export LLVMROOT=$HOME/c++/llvm-project
 export LLVMBIN=$LLVMROOT/build/bin
 export LD_LIBRARY_PATH=$LLVMROOT/build/lib
 
-export GOSRC=$HOME/go/src
-
-ZSH_THEME="duellj" # set by `omz`
+ZSH_THEME="typewritten"
+export TYPEWRITTEN_SYMBOL=λ
+export TYPEWRITTEN_CURSOR=block
 
 plugins=(git golang python virtualenv)
 
@@ -29,3 +29,6 @@ alias hk="heroku"
 alias pm="python manage.py"
 
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+source "/home/glotchimo/go/src/github.com/sachaos/todoist/todoist_functions.sh"
+PROG=todoist source "/home/glotchimo/go/src/github.com/urfave/cli/autocomplete/zsh_autocomplete"
