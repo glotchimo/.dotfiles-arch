@@ -57,6 +57,10 @@
   color: #32302f !important;
 }
 
+#navigator-toolbox {
+  border: none !important;
+}
+
 #tracking-protection-icon-container {display: none !important;}
 #identity-box {display: none !important;}
 #page-action-buttons {display: none !important;}
