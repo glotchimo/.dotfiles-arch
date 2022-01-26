@@ -1,3 +1,5 @@
+source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
 export ZSH="/home/glotchimo/.oh-my-zsh"
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/c++/llvm-project/build/lib
 
@@ -32,3 +34,6 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 source "/home/glotchimo/go/src/github.com/sachaos/todoist/todoist_functions.sh"
 PROG=todoist source "/home/glotchimo/go/src/github.com/urfave/cli/autocomplete/zsh_autocomplete"
+
+rm -rf -- /home/glotchimo/Downloads
+rm -rf -- /home/glotchimo/Desktop
