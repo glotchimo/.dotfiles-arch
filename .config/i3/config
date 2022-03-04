@@ -26,6 +26,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec alacritty
 bindsym $mod+F2 exec firefox
 bindsym $mod+F3 exec alacritty -e ranger
+bindsym $mod+F4 exec alacritty -e spt
 bindsym $mod+d exec rofi -show run
 bindsym Print exec flameshot gui
 
@@ -129,10 +130,11 @@ exec_always --no-startup-id exec xrdb -merge ~/.Xresources
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper
+exec_always --no-startup-id spotifyd
 
 # gaps
 
-gaps inner 20 
+gaps inner 18
 gaps outer -2
 smart_gaps inverse_outer
 
@@ -144,3 +146,7 @@ client.focused_inactive #32302f #32302f #ebdbb2 #32302f
 client.placeholder      #32302f #32302f #ebdbb2 #32302f
 client.urgent           #d65d0e #d65d0e #ebdbb2 #d65d0e
 client.background       #32302f
+
+# float defaults
+for_window [class="mpv"] floating enable
+for_window [class="blueman-manager"] floating enable
