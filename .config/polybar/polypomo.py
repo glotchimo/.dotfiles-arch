@@ -14,9 +14,9 @@ from subprocess import call, DEVNULL
 
 SOCKDIR = os.environ.get("XDG_RUNTIME_DIR", "/var/tmp")
 SOCKFILE = os.path.join(SOCKDIR, "polypomo.sock")
-TOMATO = ""
-BREAK = ""
-PAUSE = ""
+TOMATO = "working for"
+BREAK = "resting for"
+PAUSE = "paused at"
 
 
 class Exit(Exception):
@@ -296,7 +296,8 @@ class ValidateTime(argparse.Action):
                 "Time format should be +num or -num to add or remove time, respectively"
             )
         if not values[1:].isdigit():
-            parser.error("Expected number after +/- but saw '{}'".format(values[1:]))
+            parser.error(
+                "Expected number after +/- but saw '{}'".format(values[1:]))
 
         # action = operator.add if values[0] == '+' else operator.sub
         # value = int(values[1:])
@@ -336,7 +337,8 @@ def parse_args():
     end.set_defaults(func=action_end)
 
     # lock timer changes
-    lock = sub.add_parser("lock", help="lock time actions - prevent changing time")
+    lock = sub.add_parser(
+        "lock", help="lock time actions - prevent changing time")
     lock.set_defaults(func=action_lock)
 
     # lock timer changes
