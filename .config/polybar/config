@@ -36,7 +36,7 @@ font-1 = IBM Plex Sans;3
 font-2 = FontAwesome5FreeSolid:pixelsize=12;1
 
 modules-left = i3 title
-modules-right = memory cpu temperature pulseaudio wlan date
+modules-right = polypomo memory cpu temperature pulseaudio wlan date
 
 tray-position = none
 
@@ -102,8 +102,8 @@ format-connected-background = ${colors.bg3}
 format-connected = <label-connected>
 label-connected = %essid%
 format-disconnected-padding = 1
-label-disconnected-foreground = ${colors.bg0}
-format-disconnected-background = ${colors.fg4}
+label-disconnected-foreground = ${colors.fg2}
+format-disconnected-background = ${colors.bg3}
 format-disconnected = <label-disconnected>
 label-disconnected = %ifname% disconnected
 
@@ -146,6 +146,22 @@ format-background = ${colors.bg1}
 format-warn = <label-warn>
 format-warn-padding = 1
 format-warn-background = ${colors.bg1}
+
+[module/polypomo]
+type = custom/script
+
+exec = ~/.config/polybar/polypomo.py --worktime 1800 --breaktime 600
+tail = true
+
+label = %output%
+label-foreground = ${colors.fg2}
+label-background = ${colors.bg1}
+label-padding = 1
+click-left = ~/.config/polybar/polypomo.py toggle
+click-right = ~/.config/polybar/polypomo.py end
+click-middle = ~/.config/polybar/polypomo.py lock
+scroll-up = ~/.config/polybar/polypomo.py time +60
+scroll-down = ~/.config/polybar/polypomo.py time -60
 
 [settings]
 screenchange-reload = true
