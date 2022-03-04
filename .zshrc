@@ -1,4 +1,4 @@
-source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# source ~/.config/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 export ZSH="/home/glotchimo/.oh-my-zsh"
 export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/c++/llvm-project/build/lib
@@ -12,6 +12,9 @@ export LD_LIBRARY_PATH=$LLVMROOT/build/lib
 ZSH_THEME="typewritten"
 export TYPEWRITTEN_SYMBOL=λ
 export TYPEWRITTEN_CURSOR=block
+export TYPEWRITTEN_ARROW_SYMBOL=→
+export TYPEWRITTEN_PROMPT_LAYOUT="singleline"
+export TYPEWRITTEN_DISABLE_RETURN_CODE=true
 
 plugins=(git golang python virtualenv)
 
