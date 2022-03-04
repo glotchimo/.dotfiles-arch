@@ -1,30 +1,21 @@
 set encoding=utf-8
-
 set number relativenumber
-
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
-
+set wrap linebreak
+set spell
 set hidden
-
 set nobackup
 set nowritebackup
-
 set cmdheight=2
-
 set updatetime=300
-
 set shortmess+=c
-
 set signcolumn=number
-
 set splitbelow splitright
-
 set noshowmode
 
-" Remember cursor position
 set viminfo='10,\"100,:20,%,n~/.viminfo
 function! ResCur()
   if line("'\"") <= line("$")
@@ -38,7 +29,6 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-" Keep undo history but not in home
 if !has('nvim')
   if !isdirectory($HOME . '/.local/vim/undo)
     call mkdir($HOME . '/.local/vim/undo', 'p', 0700)
@@ -55,16 +45,14 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
-" airline setup
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" nerdtree setup
 nnoremap <silent> <C-E> :NERDTreeToggle<CR>
 
-" neoformat setup
 let g:neoformat_cpp_clangformat = {
     \ 'exe': 'clang-format',
     \ 'args': ['--style="LLVM"']
@@ -77,7 +65,6 @@ augroup fmt
 	autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
-" coc setup
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -133,7 +120,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" Theme setup
 let g:gruvbox_contrast_dark = 'soft'
 set termguicolors
 colorscheme gruvbox
