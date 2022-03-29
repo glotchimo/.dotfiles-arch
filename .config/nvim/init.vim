@@ -46,7 +46,12 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive'
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lervag/wiki.vim'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'samgriesemer/vim-roam'
 call plug#end()
+
+let g:wiki_root = '~/docs/notes'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
@@ -123,3 +128,5 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:gruvbox_contrast_dark = 'soft'
 set termguicolors
 colorscheme gruvbox
+
+vnoremap <C-r> "hy:%s/<C-r>h//g<left><left><left>

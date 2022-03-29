@@ -1,0 +1,9 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "go",
+    "c",
+    "c++",
+    "html",
+    "js"
+  ]
+}

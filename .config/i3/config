@@ -25,7 +25,7 @@ bindsym $mod+Shift+q kill
 
 bindsym $mod+Return exec alacritty
 bindsym $mod+F2 exec firefox
-bindsym $mod+F3 exec alacritty -e ranger
+bindsym $mod+F3 exec alacritty -e nnn
 bindsym $mod+F4 exec alacritty -e spt
 bindsym $mod+d exec rofi -show run
 bindsym Print exec flameshot gui
@@ -127,6 +127,7 @@ focus_follows_mouse yes
 # autostarts
 
 exec_always --no-startup-id exec xrdb -merge ~/.Xresources
+exec_always --no-startup-id exec xbanish
 exec_always --no-startup-id ~/.screenlayout/config.sh
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id nitrogen --set-scaled ~/.wallpaper
